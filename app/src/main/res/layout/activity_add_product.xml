@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddProduct"
+    android:background="@drawable/background_design">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Add Product"
+        android:textColor="@color/white"
+
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/barcode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/edittext_design"
+            android:focusableInTouchMode="false"
+
+            android:fontFamily="@font/aclonica"
+            android:hint="Scan Barcode"
+            android:paddingLeft="15dp"
+            android:textColor="#FBF8F8"
+            android:textColorHint="#E8F8F6F6"
+            android:onClick="getBarcode"
+            />
+
+        <EditText
+            android:id="@+id/add_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/edittext_design"
+            android:fontFamily="@font/aclonica"
+            android:hint="Name"
+            android:paddingLeft="15dp"
+            android:textColor="#FBF8F8"
+            android:textColorHint="#E8F8F6F6" />
+
+        <EditText
+            android:id="@+id/add_company"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/edittext_design"
+            android:fontFamily="@font/aclonica"
+            android:hint="Company"
+
+            android:paddingLeft="15dp"
+            android:textColor="#FBF8F8"
+            android:textColorHint="#E8F8F6F6" />
+
+        <EditText
+            android:id="@+id/add_price"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/edittext_design"
+            android:fontFamily="@font/aclonica"
+            android:hint="Unit Price"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            android:textColor="#FBF8F8"
+            android:textColorHint="#E8F8F6F6" />
+
+        <EditText
+            android:id="@+id/add_quantity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/edittext_design"
+            android:fontFamily="@font/aclonica"
+            android:hint="Quantity"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            android:textColor="#FBF8F8"
+            android:textColorHint="#E8F8F6F6" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_to_db"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/designs"
+
+
+        android:text="Add"
+        android:textColor="#F8F7F7"
+        android:textSize="16sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
