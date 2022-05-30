@@ -91,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
+                    android:minHeight="48dp"
                     android:onClick="CreateCount"
                     android:text="Create New Account"
                     android:textColor="@color/white"

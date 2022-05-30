@@ -44,10 +44,10 @@
         android:id="@+id/edit_quantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
         android:hint="Quantity"
         android:inputType="number"
-        android:layout_marginHorizontal="15dp"
-        />
+        android:minHeight="48dp" />
 
 
     <LinearLayout

@@ -1,5 +1,6 @@
 package com.example.store;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -32,7 +33,7 @@ public class ProductAdapter extends FirestoreRecyclerAdapter <Product, ProductAd
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull ProductHolder holder, int position, Product model) {
+    protected void onBindViewHolder(@NonNull ProductHolder holder, @SuppressLint("RecyclerView") int position, Product model) {
         holder.etName.setText(model.getName());
         holder.etQuantity.setText(String.valueOf(model.getQuantity()));
         holder.etPrice.setText(String.valueOf(model.getPrice()));

@@ -1,5 +1,8 @@
 package com.example.store;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,6 +39,7 @@ public class LoginAtivity extends AppCompatActivity {
     Button btn;
     Animation textAnim , loginAnim , btnAnim , text;
     ImageView img;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference ref = db.collection("Users");
     @Override
@@ -56,6 +60,7 @@ public class LoginAtivity extends AppCompatActivity {
         text = AnimationUtils.loadAnimation(this , R.anim.textview_anim);
 
 
+        if(android.os.Build.VERSION.SDK_INT >=  android.os.Build.VERSION_CODES.N_MR1) {
 
             btn.setAnimation(btnAnim);
             name.setAnimation(textAnim);
@@ -74,32 +79,30 @@ public class LoginAtivity extends AppCompatActivity {
                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                             Toast.makeText(LoginAtivity.this, "Got the data", Toast.LENGTH_SHORT).show();
 
-                            for( DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()) {
-                               UserId userId= new UserId();
-                                      userId= doc.toObject(UserId.class);
-                                      String Name =doc.getString("username");
-                                      String Pass = doc.getString("password");
+                            for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()) {
+                                UserId userId = new UserId();
+                                userId = doc.toObject(UserId.class);
+                                String Name = doc.getString("username");
+                                String Pass = doc.getString("password");
 
-                                      Tname.add(Name);
-                                      Tpass.add(Pass);
+                                Tname.add(Name);
+                                Tpass.add(Pass);
 
 //                               userIds.add(userId);
 
                             }
 
-                            
 
 //                            UserId id = new UserId(name.getText().toString(),pass.getText().toString());
 
-                                if (Tname.contains(name.getText().toString())&& Tpass.contains(pass.getText().toString())) {
-                                    Toast.makeText(LoginAtivity.this, "Done", Toast.LENGTH_SHORT).show();
+                            if (Tname.contains(name.getText().toString()) && Tpass.contains(pass.getText().toString())) {
+                                Toast.makeText(LoginAtivity.this, "Done", Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(LoginAtivity.this, MainActivity.class);
-                                intent.putExtra("Name",name.getText().toString());
-                                    startActivity(intent);
+                                Intent intent = new Intent(LoginAtivity.this, MainActivity.class);
+                                intent.putExtra("Name", name.getText().toString());
+                                startActivity(intent);
 
-                                }
-
+                            }
 
 
                         }
@@ -107,6 +110,16 @@ public class LoginAtivity extends AppCompatActivity {
 
                 }
             });
+        }else { AlertDialog alertDialog = new AlertDialog.Builder(LoginAtivity.this).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("Your Mobile don't Support this App");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show(); }
 
     }
 

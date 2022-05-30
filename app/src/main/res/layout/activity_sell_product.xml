@@ -37,11 +37,11 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/designs"
+        android:onClick="addToCart"
         android:padding="10dp"
         android:src="@drawable/ic_add"
-        android:onClick="addToCart"
 
-        />
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/Submit"
@@ -52,8 +52,9 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/designs"
-        android:padding="10dp"
         android:onClick="ConfirmList"
-        android:src="@drawable/ic_check" />
+        android:padding="10dp"
+        android:src="@drawable/ic_check"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </RelativeLayout>
